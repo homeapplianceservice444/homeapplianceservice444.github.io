@@ -9,8 +9,8 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #111;
-      color: #f2d6a4;
+      background: #000000;
+      color: #f6d9a5;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -20,122 +20,196 @@
 
     a { color: inherit; text-decoration: none; }
 
-    .page-wrap { max-width: 960px; width: 100%; }
+    .page-wrap { max-width: 900px; width: 100%; }
 
+    /* КАРТИНКА-ВИЗИТКА */
     .card {
-      background: #000;
-      border-radius: 18px;
-      padding: 28px 24px 30px;
+      background: #050505;
+      border-radius: 32px;
+      padding: 40px 24px 32px;
       position: relative;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-      border: 2px solid #0a407c;
+      border: 3px solid #f6d9a5;
+      text-align: center;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 14px;
-      border-radius: 14px;
-      border: 2px solid #f2d6a4;
-      pointer-events: none;
+    .card-inner {
+      max-width: 520px;
+      margin: 0 auto;
     }
-
-    .card-inner { text-align: center; position: relative; }
 
     .title {
-      font-size: 24px;
-      letter-spacing: 0.18em;
+      font-size: 26px;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 32px;
     }
 
     .services {
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      margin-bottom: 26px;
+      font-size: 16px;
+      letter-spacing: 0.10em;
+      margin-bottom: 30px;
     }
 
-    .divider {
-      margin: 0 auto 26px;
-      height: 2px;
-      max-width: 320px;
-      background: linear-gradient(90deg, transparent, #f2d6a4, transparent);
+    /* декоративная линия как на карточке */
+    .divider-wrap {
+      margin: 0 auto 40px;
+      max-width: 360px;
       position: relative;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .divider::before {
-      content: "";
+    .divider-line {
       position: absolute;
-      width: 60px;
-      height: 12px;
-      border-radius: 999px;
-      border-top: 2px solid #f2d6a4;
-      border-bottom: 2px solid #f2d6a4;
-      left: 50%;
-      transform: translateX(-50%);
-      top: -5px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #f6d9a5, transparent);
+      opacity: 0.9;
     }
 
-    .phone-label { font-size: 14px; margin-bottom: 4px; }
-    .phone { font-size: 20px; letter-spacing: 0.12em; margin-bottom: 20px; }
+    .divider-pill {
+      position: relative;
+      width: 110px;
+      height: 18px;
+      border-radius: 999px;
+      border: 2px solid #f6d9a5;
+      background: #050505;
+    }
 
-    .email-label { font-size: 13px; margin-bottom: 4px; }
-    .email { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .phone-label {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
 
-    .btn-row { margin-top: 26px; display: flex; justify-content: center; }
+    .phone {
+      font-size: 28px;
+      letter-spacing: 0.18em;
+      margin-bottom: 30px;
+    }
 
-    .btn-primary {
-      background: #f2d6a4;
+    .email-label {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .email {
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .btn-main-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-main {
+      background: #f6d9a5;
       color: #000;
       border-radius: 999px;
-      padding: 10px 24px;
-      font-size: 13px;
+      padding: 16px 40px;
+      min-width: 260px;
+      font-size: 15px;
       font-weight: 600;
+      letter-spacing: 0.20em;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
       border: none;
       cursor: pointer;
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.75);
     }
 
-    .btn-primary:active { transform: translateY(1px); }
+    .btn-main:active {
+      transform: translateY(1px);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.75);
+    }
 
-    /* === ФОРМА === */
+    /* ФОРМА ЗАЯВКИ */
     .form-wrap {
-      margin-top: 28px;
-      background: #050505;
-      border-radius: 16px;
-      border: 1px solid #f2d6a4;
-      padding: 18px 16px 18px;
+      margin-top: 26px;
+      padding: 24px 18px 18px;
+      border-radius: 24px;
+      border: 1px solid #f6d9a5;
+      background: #020202;
     }
 
     .form-title {
-      font-size: 16px;
-      letter-spacing: 0.12em;
+      font-size: 18px;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      letter-spacing: 0.18em;
+      text-align: center;
+      margin-bottom: 18px;
     }
 
-    form { display: grid; gap: 10px; text-align: left; }
+    form {
+      display: grid;
+      gap: 12px;
+      text-align: left;
+      max-width: 520px;
+      margin: 0 auto;
+    }
 
-    label { font-size: 12px; margin-bottom: 2px; display: block; }
+    label {
+      font-size: 12px;
+      margin-bottom: 4px;
+      display: block;
+    }
 
-    .row-2 { display: grid; gap: 10px; }
-    @media (min-width: 640px) { .row-2 { grid-template-columns: 1fr 1fr; } }
+    .row-2 {
+      display: grid;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .row-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
 
     input, select, textarea {
-      width: 100%; padding: 8px 9px; border-radius: 8px;
-      border: 1px solid #43351e; background: #111; color: #f2d6a4;
+      width: 100%;
+      padding: 9px 10px;
+      border-radius: 10px;
+      border: 1px solid #4a3820;
+      background: #080808;
+      color: #f6d9a5;
+      font-size: 13px;
     }
 
-    textarea { resize: vertical; min-height: 80px; }
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
 
-    .submit-row { text-align: right; }
+    input::placeholder,
+    textarea::placeholder {
+      color: #8e7348;
+    }
+
+    .submit-row {
+      margin-top: 4px;
+      text-align: right;
+    }
 
     .btn-send {
-      background: #f2d6a4; color: #000; border-radius: 999px;
-      padding: 9px 20px; font-size: 12px; font-weight: 600;
-      border: none; cursor: pointer;
+      background: #f6d9a5;
+      color: #000;
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-send:active {
+      transform: translateY(1px);
     }
 
     .hidden { display: none; }
@@ -147,52 +221,64 @@
     <div class="card">
       <div class="card-inner">
 
-        <div class="title">HOME APPLIANCE SERVICE</div>
+        <!-- ТОП КАК НА КАРТИНКЕ -->
+        <div class="title">HOME APPLIANCE<br>SERVICE</div>
 
         <div class="services">
-          Washers Dryers Ovens Refrigerators Dishwashers Microwaves
+          Washers Dryers Ovens Refrigerators<br>
+          Dishwashers Microwaves
         </div>
 
-        <div class="divider"></div>
+        <div class="divider-wrap">
+          <div class="divider-line"></div>
+          <div class="divider-pill"></div>
+        </div>
 
         <div class="phone-label">Call / Text</div>
-        <div class="phone"><a href="tel:+19734758336">973 475 8336</a></div>
+        <div class="phone">
+          <a href="tel:+19734758336">973 475 8336</a>
+        </div>
 
         <div class="email-label">Email:</div>
         <div class="email">
           <a href="mailto:homeapplianceservice444@gmail.com">
-            homeapplianceservice444@gmail.com
+            HOMEAPPLIANCESERVICE444@GMAIL.COM
           </a>
         </div>
 
-        <div class="btn-row">
-          <button id="request-btn" class="btn-primary" type="button">SEND REQUEST</button>
+        <!-- КНОПКА -->
+        <div class="btn-main-wrap">
+          <button id="request-btn" class="btn-main" type="button">
+            SEND REQUEST
+          </button>
         </div>
 
-        <!-- Форма -->
+        <!-- ФОРМА, ПОЯВЛЯЕТСЯ ПОСЛЕ КЛИКА -->
         <div id="request-form-wrap" class="form-wrap hidden">
           <div class="form-title">Service Request</div>
 
-          <form action="mailto:homeapplianceservice444@gmail.com" method="POST" enctype="text/plain">
+          <form action="mailto:homeapplianceservice444@gmail.com"
+                method="POST"
+                enctype="text/plain">
             <div class="row-2">
               <div>
-                <label>First name *</label>
-                <input name="First name" required />
+                <label for="firstName">First name *</label>
+                <input id="firstName" name="First name" required />
               </div>
               <div>
-                <label>Last name *</label>
-                <input name="Last name" required />
+                <label for="lastName">Last name *</label>
+                <input id="lastName" name="Last name" required />
               </div>
             </div>
 
             <div class="row-2">
               <div>
-                <label>Appliance brand *</label>
-                <input name="Brand" required />
+                <label for="brand">Appliance brand *</label>
+                <input id="brand" name="Brand" required />
               </div>
               <div>
-                <label>Appliance type *</label>
-                <select name="Type" required>
+                <label for="type">Appliance type *</label>
+                <select id="type" name="Type" required>
                   <option value="">Choose…</option>
                   <option>Washer</option>
                   <option>Dryer</option>
@@ -207,18 +293,18 @@
             </div>
 
             <div>
-              <label>Problem description *</label>
-              <textarea name="Problem" required></textarea>
+              <label for="problem">Problem description *</label>
+              <textarea id="problem" name="Problem" required></textarea>
             </div>
 
             <div class="row-2">
               <div>
-                <label>Phone *</label>
-                <input name="Phone" required />
+                <label for="phone">Phone *</label>
+                <input id="phone" name="Phone" required />
               </div>
               <div>
-                <label>Email (optional)</label>
-                <input name="Customer email" type="email" />
+                <label for="email">Email (optional)</label>
+                <input id="email" name="Customer email" type="email" />
               </div>
             </div>
 
@@ -234,8 +320,14 @@
 
   <script>
     const btn = document.getElementById("request-btn");
-    const form = document.getElementById("request-form-wrap");
-    btn.addEventListener("click", () => form.classList.toggle("hidden"));
+    const formWrap = document.getElementById("request-form-wrap");
+
+    btn.addEventListener("click", () => {
+      formWrap.classList.toggle("hidden");
+      if (!formWrap.classList.contains("hidden")) {
+        formWrap.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
   </script>
 </body>
 </html>
