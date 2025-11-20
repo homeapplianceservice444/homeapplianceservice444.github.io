@@ -24,7 +24,8 @@
     h1 {
         font-size: 32px;
         font-weight: 600;
-        margin-top: 20px;
+        margin-top: 40px;
+        margin-bottom: 0;
         letter-spacing: 2px;
     }
 
@@ -34,14 +35,11 @@
         line-height: 28px;
     }
 
-    .line {
-        width: 90%;
-        height: 1px;
-        background: linear-gradient(to right,
-            transparent,
-            #d8b07f,
-            transparent);
+    .decor {
         margin: 25px auto;
+        width: 100%;
+        font-size: 26px;
+        color: #d8b07f;
     }
 
     .contact {
@@ -103,14 +101,14 @@
         Washers • Dryers • Ovens • Refrigerators • Dishwashers • Microwaves
     </div>
 
-    <div class="line"></div>
+    <div class="decor">✦ ✦ ✦</div>
 
     <div class="contact">call/text (253) 213-1651</div>
     <a href="mailto:homeapplianceservice444@gmail.com">
         homeapplianceservice444@gmail.com
     </a>
 
-    <!-- ФОРМА -->
+    <!-- FORM -->
     <form action="https://formspree.io/f/xwpkljlo" method="POST">
 
         <input type="text" name="Full Name" placeholder="Full Name" required>
