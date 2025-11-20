@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -22,7 +22,6 @@
 
     .page-wrap { max-width: 900px; width: 100%; }
 
-    /* КАРТИНКА-ВИЗИТКА */
     .card {
       background: #050505;
       border-radius: 32px;
@@ -43,15 +42,16 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       margin-bottom: 32px;
+      line-height: 1.3;
     }
 
     .services {
       font-size: 16px;
       letter-spacing: 0.10em;
       margin-bottom: 30px;
+      line-height: 1.5;
     }
 
-    /* декоративная линия как на карточке */
     .divider-wrap {
       margin: 0 auto 40px;
       max-width: 360px;
@@ -88,19 +88,7 @@
     .phone {
       font-size: 28px;
       letter-spacing: 0.18em;
-      margin-bottom: 30px;
-    }
-
-    .email-label {
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-
-    .email {
-      font-size: 14px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 32px;
+      margin-bottom: 45px;
     }
 
     .btn-main-wrap {
@@ -125,10 +113,8 @@
 
     .btn-main:active {
       transform: translateY(1px);
-      box-shadow: 0 10px 18px rgba(0,0,0,0.75);
     }
 
-    /* ФОРМА ЗАЯВКИ */
     .form-wrap {
       margin-top: 26px;
       padding: 24px 18px 18px;
@@ -208,9 +194,7 @@
       cursor: pointer;
     }
 
-    .btn-send:active {
-      transform: translateY(1px);
-    }
+    .btn-send:active { transform: translateY(1px); }
 
     .hidden { display: none; }
   </style>
@@ -221,8 +205,9 @@
     <div class="card">
       <div class="card-inner">
 
-        <!-- ТОП КАК НА КАРТИНКЕ -->
-        <div class="title">HOME APPLIANCE<br>SERVICE</div>
+        <div class="title">
+          HOME APPLIANCE<br> SERVICE
+        </div>
 
         <div class="services">
           Washers Dryers Ovens Refrigerators<br>
@@ -235,50 +220,44 @@
         </div>
 
         <div class="phone-label">Call / Text</div>
+
         <div class="phone">
           <a href="tel:+19734758336">973 475 8336</a>
         </div>
 
-        <div class="email-label">Email:</div>
-        <div class="email">
-          <a href="mailto:homeapplianceservice444@gmail.com">
-            HOMEAPPLIANCESERVICE444@GMAIL.COM
-          </a>
-        </div>
-
-        <!-- КНОПКА -->
         <div class="btn-main-wrap">
           <button id="request-btn" class="btn-main" type="button">
             SEND REQUEST
           </button>
         </div>
 
-        <!-- ФОРМА, ПОЯВЛЯЕТСЯ ПОСЛЕ КЛИКА -->
+        <!-- FORM -->
         <div id="request-form-wrap" class="form-wrap hidden">
           <div class="form-title">Service Request</div>
 
           <form action="mailto:homeapplianceservice444@gmail.com"
                 method="POST"
                 enctype="text/plain">
+
             <div class="row-2">
               <div>
-                <label for="firstName">First name *</label>
-                <input id="firstName" name="First name" required />
+                <label>First name *</label>
+                <input name="First name" required />
               </div>
               <div>
-                <label for="lastName">Last name *</label>
-                <input id="lastName" name="Last name" required />
+                <label>Last name *</label>
+                <input name="Last name" required />
               </div>
             </div>
 
             <div class="row-2">
               <div>
-                <label for="brand">Appliance brand *</label>
-                <input id="brand" name="Brand" required />
+                <label>Appliance brand *</label>
+                <input name="Brand" required />
               </div>
               <div>
-                <label for="type">Appliance type *</label>
-                <select id="type" name="Type" required>
+                <label>Appliance type *</label>
+                <select name="Type" required>
                   <option value="">Choose…</option>
                   <option>Washer</option>
                   <option>Dryer</option>
@@ -293,25 +272,27 @@
             </div>
 
             <div>
-              <label for="problem">Problem description *</label>
-              <textarea id="problem" name="Problem" required></textarea>
+              <label>Problem description *</label>
+              <textarea name="Problem" required></textarea>
             </div>
 
             <div class="row-2">
               <div>
-                <label for="phone">Phone *</label>
-                <input id="phone" name="Phone" required />
+                <label>Phone *</label>
+                <input name="Phone" required />
               </div>
               <div>
-                <label for="email">Email (optional)</label>
-                <input id="email" name="Customer email" type="email" />
+                <label>Email (optional)</label>
+                <input name="Customer email" type="email" />
               </div>
             </div>
 
             <div class="submit-row">
               <button class="btn-send" type="submit">Send</button>
             </div>
+
           </form>
+
         </div>
 
       </div>
@@ -320,12 +301,12 @@
 
   <script>
     const btn = document.getElementById("request-btn");
-    const formWrap = document.getElementById("request-form-wrap");
+    const form = document.getElementById("request-form-wrap");
 
     btn.addEventListener("click", () => {
-      formWrap.classList.toggle("hidden");
-      if (!formWrap.classList.contains("hidden")) {
-        formWrap.scrollIntoView({ behavior: "smooth", block: "start" });
+      form.classList.toggle("hidden");
+      if (!form.classList.contains("hidden")) {
+        form.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   </script>
