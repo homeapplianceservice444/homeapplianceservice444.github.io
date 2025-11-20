@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -34,7 +34,6 @@
         line-height: 28px;
     }
 
-    /* Золотая декоративная линия */
     .line {
         width: 90%;
         height: 1px;
@@ -53,19 +52,6 @@
 
     a {
         color: #d8b07f;
-    }
-
-    .btn {
-        background: #d1a565;
-        color: black;
-        padding: 15px 40px;
-        border-radius: 10px;
-        font-size: 20px;
-        font-weight: bold;
-        border: none;
-        margin-top: 25px;
-        cursor: pointer;
-        width: 80%;
     }
 
     form {
@@ -120,9 +106,9 @@
     <div class="line"></div>
 
     <div class="contact">call/text (253) 213-1651</div>
-    <a href="mailto:homeapplianceservice444@gmail.com">homeapplianceservice444@gmail.com</a>
-
-    <button class="btn">SEND REQUEST</button>
+    <a href="mailto:homeapplianceservice444@gmail.com">
+        homeapplianceservice444@gmail.com
+    </a>
 
     <!-- ФОРМА -->
     <form action="https://formspree.io/f/xwpkljlo" method="POST">
