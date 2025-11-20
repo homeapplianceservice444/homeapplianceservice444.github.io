@@ -156,13 +156,13 @@
         <div class="divider"></div>
 
         <div class="phone-label">Call / Text</div>
-        <div class="phone"><a href="tel:+12532131651">253 213 1651</a></div>
+        <div class="phone"><a href="tel:+19734758336">973 475 8336</a></div>
 
         <div class="email-label">Email:</div>
         <div class="email">
-          
-            
-          
+          <a href="mailto:homeapplianceservice444@gmail.com">
+            homeapplianceservice444@gmail.com
+          </a>
         </div>
 
         <div class="btn-row">
