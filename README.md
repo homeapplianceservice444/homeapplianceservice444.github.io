@@ -2,334 +2,317 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>HOME APPLIANCE SERVICE</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Appliance Service</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #000000;
+      --gold: #d1a766;
+      --gold-soft: #e3c792;
+      --text: #f7f2e7;
+      --muted: #a48a63;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #000000;
-      color: #f6d9a5;
       min-height: 100vh;
+      background: radial-gradient(circle at top, #151515 0, #000 45%, #000 100%);
+      color: var(--text);
+      font-family: Inter, system-ui, sans-serif;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 24px;
+      align-items: center;
+      padding: 24px 12px;
     }
-
-    a { color: inherit; text-decoration: none; }
-
-    .page-wrap { max-width: 900px; width: 100%; }
 
     .card {
-      background: #050505;
-      border-radius: 32px;
-      padding: 40px 24px 32px;
-      position: relative;
-      border: 3px solid #f6d9a5;
+      width: 100%;
+      max-width: 480px;
+      background: #000;
+      border-radius: 18px;
+      border: 1px solid rgba(209,167,102,0.85);
+      padding: 34px 24px 30px;
       text-align: center;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.9);
     }
 
-    .card-inner {
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .title {
-      font-size: 26px;
-      letter-spacing: 0.28em;
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      margin-bottom: 32px;
-      line-height: 1.3;
+      color: var(--gold-soft);
+      margin-bottom: 22px;
     }
 
     .services {
-      font-size: 16px;
-      letter-spacing: 0.10em;
-      margin-bottom: 30px;
-      line-height: 1.5;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 18px;
     }
 
-    .divider-wrap {
-      margin: 0 auto 40px;
-      max-width: 360px;
-      position: relative;
-      height: 24px;
+    .rule-line {
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      color: var(--gold-soft);
     }
-
-    .divider-line {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #f6d9a5, transparent);
-      opacity: 0.9;
+    .rule-line span {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-soft));
     }
-
-    .divider-pill {
-      position: relative;
-      width: 110px;
-      height: 18px;
-      border-radius: 999px;
-      border: 2px solid #f6d9a5;
-      background: #050505;
-    }
-
-    .phone-label {
-      font-size: 16px;
-      margin-bottom: 12px;
+    .rule-line span:last-child {
+      background: linear-gradient(90deg, var(--gold-soft), transparent);
     }
 
     .phone {
-      font-size: 28px;
-      letter-spacing: 0.18em;
-      margin-bottom: 32px;
-    }
-
-    .email-label {
-      font-size: 16px;
-      margin-bottom: 6px;
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: var(--gold);
     }
 
     .email {
       font-size: 14px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 40px;
-    }
-
-    .btn-main-wrap {
-      display: flex;
-      justify-content: center;
+      color: var(--muted);
+      margin-bottom: 30px;
     }
 
     .btn-main {
-      background: #f6d9a5;
-      color: #000;
+      padding: 13px 40px;
       border-radius: 999px;
-      padding: 16px 40px;
-      min-width: 260px;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.20em;
-      text-transform: uppercase;
       border: none;
-      cursor: pointer;
-      box-shadow: 0 14px 26px rgba(0,0,0,0.75);
-    }
-
-    .btn-main:active {
-      transform: translateY(1px);
-    }
-
-    /* REQUEST FORM */
-    .form-wrap {
-      margin-top: 26px;
-      padding: 24px 18px 18px;
-      border-radius: 24px;
-      border: 1px solid #f6d9a5;
-      background: #020202;
-    }
-
-    .form-title {
+      background: linear-gradient(135deg, #d6ad69, #b78645);
+      color: #1b1308;
       font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      text-align: center;
-      margin-bottom: 18px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
     }
 
-    form {
-      display: grid;
-      gap: 12px;
-      text-align: left;
-      max-width: 520px;
-      margin: 0 auto;
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: .15s;
+      z-index: 10;
+    }
+    .modal.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #050505;
+      border: 1px solid rgba(209,167,102,0.75);
+      border-radius: 18px;
+      padding: 20px;
+      width: 100%;
+      max-width: 380px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: var(--muted);
+      cursor: pointer;
     }
 
     label {
-      font-size: 12px;
-      margin-bottom: 4px;
-      display: block;
-    }
-
-    .row-2 {
-      display: grid;
-      gap: 12px;
-    }
-
-    @media (min-width: 640px) {
-      .row-2 {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 9px 10px;
-      border-radius: 10px;
-      border: 1px solid #4a3820;
-      background: #080808;
-      color: #f6d9a5;
       font-size: 13px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 90px;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #8e7348;
-    }
-
-    .submit-row {
-      margin-top: 4px;
-      text-align: right;
-    }
-
-    .btn-send {
-      background: #f6d9a5;
-      color: #000;
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"] {
+      width: 100%;
+      padding: 8px 12px;
       border-radius: 999px;
-      padding: 10px 22px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
+      border: 1px solid rgba(209,167,102,0.5);
+      background: #000;
+      color: var(--text);
+      font-size: 14px;
+      margin-top: 4px;
+      outline: none;
     }
 
-    .btn-send:active { transform: translateY(1px); }
+    input:focus {
+      border-color: var(--gold);
+    }
 
-    .hidden { display: none; }
+    .slots {
+      margin: 10px 0 14px;
+    }
+    .slots label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+    }
+    .slots input {
+      width: auto;
+      accent-color: var(--gold);
+    }
+
+    .checkboxes label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .checkboxes input {
+      width: auto;
+      accent-color: var(--gold);
+    }
+
+    .btn-small {
+      margin-top: 10px;
+      padding: 10px 26px;
+      background: linear-gradient(135deg, #d6ad69, #b78645);
+      border-radius: 999px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      width: 100%;
+    }
   </style>
 </head>
 
 <body>
-  <div class="page-wrap">
-    <div class="card">
-      <div class="card-inner">
 
-        <div class="title">
-          HOME APPLIANCE<br> SERVICE
+  <div class="card">
+    <h1>HOME APPLIANCE SERVICE</h1>
+
+    <p class="services">
+      Washers Dryers Ovens Refrigerators Dishwashers Microwave
+    </p>
+
+    <div class="rule-line">
+      <span></span><div>â§</div><span></span>
+    </div>
+
+    <p class="phone">call/text (253) 213-1651</p>
+    <p class="email">homeapplianceservice888@gmail.com</p>
+
+    <button id="openSchedule" class="btn-main">Make Schedule</button>
+  </div>
+
+  <!-- MODAL -->
+  <div id="calendarModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">&times;</button>
+
+      <h2 style="text-align:center;color:#e3c792;margin-bottom:10px;">
+        Schedule
+      </h2>
+
+      <form id="calendarForm">
+
+        <label>Name
+          <input type="text" id="nameInput" required>
+        </label>
+
+        <label>Phone
+          <input type="tel" id="phoneInput" required>
+        </label>
+
+        <label>Address
+          <input type="text" id="addressInput" required>
+        </label>
+
+        <label>Date
+          <input type="date" id="dateInput" required>
+        </label>
+
+        <div class="slots">
+          <label><input type="radio" name="slot" value="8:00â12:00" required> 8:00 â 12:00</label>
+          <label><input type="radio" name="slot" value="12:00â16:00"> 12:00 â 4:00 PM</label>
+          <label><input type="radio" name="slot" value="16:00â20:00"> 4:00 â 8:00 PM</label>
         </div>
 
-        <div class="services">
-          Washers Dryers Ovens Refrigerators<br>
-          Dishwashers Microwaves
+        <div class="checkboxes">
+          <label><input type="checkbox" value="Washer"> Washer</label>
+          <label><input type="checkbox" value="Dryer"> Dryer</label>
+          <label><input type="checkbox" value="Oven"> Oven</label>
+          <label><input type="checkbox" value="Refrigerator"> Refrigerator</label>
+          <label><input type="checkbox" value="Dishwasher"> Dishwasher</label>
+          <label><input type="checkbox" value="Microwave"> Microwave</label>
         </div>
 
-        <div class="divider-wrap">
-          <div class="divider-line"></div>
-          <div class="divider-pill"></div>
-        </div>
+        <button class="btn-small" type="submit">Confirm</button>
 
-        <div class="phone-label">Call / Text</div>
-
-        <div class="phone">
-          <a href="tel:+19734758336">973 475 8336</a>
-        </div>
-
-        <!-- EMAIL ВЕРНУЛ -->
-        <div class="email-label">Email:</div>
-        <div class="email">
-          <a href="mailto:homeapplianceservice444@gmail.com">
-            HOMEAPPLIANCESERVICE444@GMAIL.COM
-          </a>
-        </div>
-
-        <div class="btn-main-wrap">
-          <button id="request-btn" class="btn-main" type="button">
-            SEND REQUEST
-          </button>
-        </div>
-
-        <!-- REQUEST FORM (hidden until click) -->
-        <div id="request-form-wrap" class="form-wrap hidden">
-          <div class="form-title">Service Request</div>
-
-          <form action="mailto:homeapplianceservice444@gmail.com"
-                method="POST"
-                enctype="text/plain">
-
-            <div class="row-2">
-              <div>
-                <label>First name *</label>
-                <input name="First name" required />
-              </div>
-              <div>
-                <label>Last name *</label>
-                <input name="Last name" required />
-              </div>
-            </div>
-
-            <div class="row-2">
-              <div>
-                <label>Appliance brand *</label>
-                <input name="Brand" required />
-              </div>
-              <div>
-                <label>Appliance type *</label>
-                <select name="Type" required>
-                  <option value="">Choose…</option>
-                  <option>Washer</option>
-                  <option>Dryer</option>
-                  <option>Oven</option>
-                  <option>Range</option>
-                  <option>Refrigerator</option>
-                  <option>Dishwasher</option>
-                  <option>Microwave</option>
-                  <option>Other</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label>Problem description *</label>
-              <textarea name="Problem" required></textarea>
-            </div>
-
-            <div class="row-2">
-              <div>
-                <label>Phone *</label>
-                <input name="Phone" required />
-              </div>
-              <div>
-                <label>Email (optional)</label>
-                <input name="Customer email" type="email" />
-              </div>
-            </div>
-
-            <div class="submit-row">
-              <button class="btn-send" type="submit">Send</button>
-            </div>
-
-          </form>
-
-        </div>
-
-      </div>
+      </form>
     </div>
   </div>
 
   <script>
-    const btn = document.getElementById("request-btn");
-    const form = document.getElementById("request-form-wrap");
+    const openBtn = document.getElementById("openSchedule");
+    const modal = document.getElementById("calendarModal");
+    const closeBtn = document.getElementById("closeModal");
+    const form = document.getElementById("calendarForm");
+    const dateInput = document.getElementById("dateInput");
 
-    btn.addEventListener("click", () => {
-      form.classList.toggle("hidden");
-      if (!form.classList.contains("hidden")) {
-        form.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    });
+    // Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑÐ½Ð°Ñ Ð´Ð°ÑÐ° â ÑÐµÐ³Ð¾Ð´Ð½Ñ
+    dateInput.min = new Date().toISOString().split("T")[0];
+
+    openBtn.onclick = () => modal.classList.add("show");
+    closeBtn.onclick = () => modal.classList.remove("show");
+    modal.onclick = e => { if (e.target === modal) modal.classList.remove("show") };
+
+    form.onsubmit = e => {
+      e.preventDefault();
+
+      const name = document.getElementById("nameInput").value.trim();
+      const phone = document.getElementById("phoneInput").value.trim();
+      const address = document.getElementById("addressInput").value.trim();
+      const date = document.getElementById("dateInput").value;
+      const slot = document.querySelector("input[name='slot']:checked")?.value;
+
+      const appliances = [...document.querySelectorAll(".checkboxes input:checked")]
+        .map(c => c.value).join(", ");
+
+      if (!name || !phone || !address || !date || !slot) return;
+
+      const subject = encodeURIComponent(`Service Request â ${date} ${slot}`);
+      const body = encodeURIComponent(
+        `New Schedule Request:\n\n` +
+        `Name: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Address: ${address}\n\n` +
+        `Date: ${date}\n` +
+        `Time window: ${slot}\n` +
+        `Appliance(s): ${appliances || "not specified"}\n\n` +
+        `Thank you.`
+      );
+
+      window.location.href =
+        `mailto:homeapplianceservice888@gmail.com?subject=${subject}&body=${body}`;
+
+      modal.classList.remove("show");
+    };
   </script>
+
 </body>
 </html>
