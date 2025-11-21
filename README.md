@@ -88,7 +88,19 @@
     .phone {
       font-size: 28px;
       letter-spacing: 0.18em;
-      margin-bottom: 45px;
+      margin-bottom: 32px;
+    }
+
+    .email-label {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .email {
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 40px;
     }
 
     .btn-main-wrap {
@@ -115,6 +127,7 @@
       transform: translateY(1px);
     }
 
+    /* REQUEST FORM */
     .form-wrap {
       margin-top: 26px;
       padding: 24px 18px 18px;
@@ -225,13 +238,21 @@
           <a href="tel:+19734758336">973 475 8336</a>
         </div>
 
+        <!-- EMAIL ВЕРНУЛ -->
+        <div class="email-label">Email:</div>
+        <div class="email">
+          <a href="mailto:homeapplianceservice444@gmail.com">
+            HOMEAPPLIANCESERVICE444@GMAIL.COM
+          </a>
+        </div>
+
         <div class="btn-main-wrap">
           <button id="request-btn" class="btn-main" type="button">
             SEND REQUEST
           </button>
         </div>
 
-        <!-- FORM -->
+        <!-- REQUEST FORM (hidden until click) -->
         <div id="request-form-wrap" class="form-wrap hidden">
           <div class="form-title">Service Request</div>
 
