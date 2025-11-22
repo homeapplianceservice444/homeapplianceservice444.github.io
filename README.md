@@ -6,13 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
-      --blue: #0285d9;
-      --blue-dark: #006ab0;
-      --border: #d0d0d0;
-      --bg: #f3f3f3;
-      --text: #222;
-      --muted: #666;
-      --btn-blue: #1993ff;
+      --bg: #f2e5d3;
+      --card: #f7ecde;
+      --panel: #fff9ef;
+      --border: #d1b89d;
+      --accent: #8b5a36;
+      --accent-dark: #5f3a23;
+      --accent-light: #b68250;
+      --text: #3d2a1c;
+      --muted: #7b6a58;
     }
 
     * {
@@ -28,11 +30,10 @@
     }
 
     .topbar {
-      background: var(--blue);
-      color: #fff;
       padding: 10px 14px;
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-dark);
     }
 
     .page {
@@ -42,17 +43,17 @@
     }
 
     .card-main {
-      background: #fff;
-      border-radius: 6px;
+      background: var(--card);
+      border-radius: 10px;
       border: 1px solid var(--border);
-      margin-top: 10px;
       overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
     }
 
     .card-header {
-      background: #f7f7f7;
-      border-bottom: 1px solid var(--border);
-      padding: 8px 10px;
+      background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+      color: #fff;
+      padding: 8px 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -62,7 +63,7 @@
 
     .card-header span {
       font-weight: 400;
-      color: var(--muted);
+      opacity: 0.9;
     }
 
     .card-body {
@@ -70,26 +71,26 @@
     }
 
     .btn-menu {
-      display: block;
-      width: 100%;
-      text-align: left;
-      padding: 10px 12px;
-      margin-bottom: 6px;
-      border-radius: 4px;
-      border: 1px solid var(--border);
-      background: #fff;
-      cursor: pointer;
-      font-size: 14px;
       display: flex;
       align-items: center;
       gap: 8px;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 7px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      cursor: pointer;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--text);
     }
 
     .btn-menu.main {
-      background: var(--btn-blue);
-      border-color: var(--blue-dark);
+      background: var(--accent);
+      border-color: var(--accent-dark);
       color: #fff;
       justify-content: center;
+      font-weight: 600;
     }
 
     .btn-menu-main-icon {
@@ -113,26 +114,53 @@
 
     .panel {
       border: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: 8px;
       margin-bottom: 10px;
-      background: #fff;
+      background: var(--panel);
+      overflow: hidden;
     }
 
     .panel-header {
       padding: 8px 10px;
-      border-bottom: 1px solid var(--border);
-      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
       font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.6);
+    }
+
+    .panel-header:hover {
+      background: rgba(255,255,255,0.9);
     }
 
     .panel-body {
       padding: 8px 10px 10px;
+      display: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .panel.open .panel-body {
+      display: block;
+    }
+
+    .caret {
+      font-size: 14px;
+      color: var(--muted);
+      transition: transform 0.15s ease;
+    }
+
+    .panel.open .caret {
+      transform: rotate(90deg);
     }
 
     label {
       font-size: 13px;
       display: block;
       margin-bottom: 3px;
+      color: var(--muted);
     }
 
     input[type="text"],
@@ -143,10 +171,12 @@
     textarea {
       width: 100%;
       padding: 6px 7px;
-      border-radius: 3px;
+      border-radius: 5px;
       border: 1px solid var(--border);
       margin-bottom: 6px;
       font-size: 14px;
+      background: #fffdf7;
+      color: var(--text);
     }
 
     textarea {
@@ -174,22 +204,27 @@
 
     .btn {
       padding: 8px 14px;
-      border-radius: 4px;
+      border-radius: 6px;
       border: 1px solid var(--border);
-      background: #f7f7f7;
+      background: #f5ebdd;
       cursor: pointer;
       font-size: 14px;
+      color: var(--text);
     }
 
-    .btn.blue {
-      background: var(--btn-blue);
-      border-color: var(--blue-dark);
+    .btn.brown {
+      background: var(--accent);
+      border-color: var(--accent-dark);
       color: #fff;
     }
 
+    .btn.secondary {
+      background: #fdf6ec;
+    }
+
     .btn.danger {
-      background: #e34a4a;
-      border-color: #c73737;
+      background: #b54c3c;
+      border-color: #96372a;
       color: #fff;
     }
 
@@ -206,11 +241,11 @@
 
     .list-item {
       border: 1px solid var(--border);
-      border-radius: 3px;
+      border-radius: 6px;
       padding: 8px 9px;
       margin-bottom: 6px;
       font-size: 13px;
-      background: #fff;
+      background: #fffdf7;
     }
 
     .list-top {
@@ -230,6 +265,7 @@
       padding: 1px 6px;
       font-size: 11px;
       color: var(--muted);
+      background: #f3e3cf;
     }
 
     .search-input {
@@ -240,7 +276,8 @@
       font-family: "SF Mono", Menlo, Consolas, monospace;
       font-size: 12px;
       white-space: pre-wrap;
-      min-height: 180px;
+      min-height: 120px;
+      background: #fffef8;
     }
 
     .footer-note {
@@ -250,12 +287,11 @@
       margin-top: 8px;
     }
 
-    /* Signature */
     #signaturePad {
       border: 1px solid var(--border);
-      background: #fffde0;
+      background: #fff8c9;
       width: 100%;
-      height: 160px;
+      height: 150px;
       touch-action: none;
     }
 
@@ -263,14 +299,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 0;
+      padding: 6px 0;
     }
 
     .circle-icon {
       width: 34px;
       height: 34px;
       border-radius: 50%;
-      background: var(--btn-blue);
+      background: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -298,7 +334,7 @@
       <div class="card-body">
 
         <!-- MAIN MENU -->
-        <button class="btn-menu main" onclick="showSection('new')">
+        <button class="btn-menu main" onclick="startNewCall()">
           <span class="btn-menu-main-icon">＋</span>
           <span>New Service Call</span>
         </button>
@@ -314,11 +350,16 @@
           Всё хранится только в твоём браузере (localStorage). Можно использовать оффлайн.
         </div>
 
-        <!-- NEW SERVICE CALL -->
+        <!-- NEW / EDIT SERVICE CALL -->
         <div id="section-new" class="section">
+          <div class="muted" id="editLabel" style="margin:4px 0 6px;"></div>
+
           <!-- CUSTOMER INFO -->
-          <div class="panel">
-            <div class="panel-header">Customer Info</div>
+          <div class="panel" id="panel-customer">
+            <div class="panel-header" onclick="togglePanel('panel-customer')">
+              <span>Customer Info</span>
+              <span class="caret">▸</span>
+            </div>
             <div class="panel-body">
               <div class="row">
                 <div>
@@ -370,8 +411,11 @@
           </div>
 
           <!-- APPLIANCE INFO -->
-          <div class="panel">
-            <div class="panel-header">Appl Info</div>
+          <div class="panel" id="panel-appl">
+            <div class="panel-header" onclick="togglePanel('panel-appl')">
+              <span>Appl Info</span>
+              <span class="caret">▸</span>
+            </div>
             <div class="panel-body">
               <label>Appl Type</label>
               <input type="text" id="applType">
@@ -387,12 +431,15 @@
           </div>
 
           <!-- SERVICE INFO -->
-          <div class="panel">
-            <div class="panel-header">Service Info</div>
+          <div class="panel" id="panel-service">
+            <div class="panel-header" onclick="togglePanel('panel-service')">
+              <span>Service Info</span>
+              <span class="caret">▸</span>
+            </div>
             <div class="panel-body">
               <label>Tech Notes</label>
               <textarea id="techNotes"></textarea>
-              <label>Compliant</label>
+              <label>Complaint</label>
               <textarea id="complaint"></textarea>
               <label>Description</label>
               <textarea id="description"></textarea>
@@ -404,8 +451,11 @@
           </div>
 
           <!-- SERVICE DATES -->
-          <div class="panel">
-            <div class="panel-header">Service Dates</div>
+          <div class="panel" id="panel-dates">
+            <div class="panel-header" onclick="togglePanel('panel-dates')">
+              <span>Service Dates</span>
+              <span class="caret">▸</span>
+            </div>
             <div class="panel-body">
               <label>Date Purchased</label>
               <input type="date" id="datePurchased">
@@ -416,9 +466,12 @@
             </div>
           </div>
 
-          <!-- CHARGES -->
-          <div class="panel">
-            <div class="panel-header">Charges</div>
+          <!-- CHARGES (INTERNAL INVOICE) -->
+          <div class="panel" id="panel-charges">
+            <div class="panel-header" onclick="togglePanel('panel-charges')">
+              <span>Charges (internal)</span>
+              <span class="caret">▸</span>
+            </div>
             <div class="panel-body">
               <label>Parts Total</label>
               <input type="number" step="0.01" id="partsTotal" value="0">
@@ -439,55 +492,66 @@
               <input type="number" step="0.01" id="tax" value="0">
 
               <label>Total</label>
-              <input type="number" step="0.01" id="total" value="0" readonly>
+              <input type="number" step="0.01" id="total" value="0">
 
               <div class="btn-row">
-                <button class="btn small blue" type="button" onclick="addTax()">Add Tax</button>
-                <button class="btn small blue" type="button" onclick="sumTotal()">Sum</button>
+                <button class="btn small brown" type="button" onclick="addTax()">Add Tax</button>
+                <button class="btn small brown" type="button" onclick="sumTotal()">Sum</button>
+              </div>
+              <div class="muted" style="margin-top:4px;">
+                В этих полях идёт авто-подсчёт. Но клиент при отправке будет видеть только TOTAL.
               </div>
             </div>
           </div>
 
           <!-- MANAGE PICTURES -->
-          <div class="panel">
-            <div class="panel-header">Manage pictures</div>
+          <div class="panel" id="panel-pictures">
+            <div class="panel-header" onclick="togglePanel('panel-pictures')">
+              <span>Manage Pictures</span>
+              <span class="caret">▸</span>
+            </div>
             <div class="panel-body">
               <div class="manage-pictures">
                 <div class="circle-icon">📷</div>
                 <input type="file" id="pictures" accept="image/*" multiple>
               </div>
-              <div class="muted">Картинки не сохраняются в localStorage, только для отправки/просмотра сейчас.</div>
+              <div class="muted">Фото не сохраняются в localStorage, только для просмотра/отправки сейчас.</div>
             </div>
           </div>
 
           <!-- SIGNATURE -->
-          <div class="panel">
-            <div class="panel-header">Signature</div>
+          <div class="panel" id="panel-signature">
+            <div class="panel-header" onclick="togglePanel('panel-signature')">
+              <span>Signature</span>
+              <span class="caret">▸</span>
+            </div>
             <div class="panel-body">
               <div class="manage-pictures">
                 <div class="circle-icon">✏️</div>
-                <span>Get Signature</span>
+                <span>Customer Signature</span>
               </div>
               <canvas id="signaturePad"></canvas>
               <div class="btn-row">
-                <button class="btn small" type="button" onclick="clearSignature()">Clear</button>
+                <button class="btn small secondary" type="button" onclick="clearSignature()">Clear</button>
               </div>
             </div>
           </div>
 
           <!-- FORM BUTTONS -->
           <div class="btn-row" style="justify-content:flex-end;margin-top:4px;">
-            <button class="btn" type="button" onclick="resetForm()">Cancel</button>
-            <button class="btn blue" type="button" onclick="saveCall()">Save</button>
+            <button class="btn secondary" type="button" onclick="cancelForm()">Cancel</button>
+            <button class="btn brown" type="button" onclick="saveCall()">Save</button>
           </div>
         </div>
 
         <!-- SERVICE LIST -->
         <div id="section-list" class="section">
           <div class="panel">
-            <div class="panel-header">Service List</div>
+            <div class="panel-header">
+              <span>Service List</span>
+            </div>
             <div class="panel-body">
-              <div class="muted">Последние сохранённые вызовы.</div>
+              <div class="muted">Сохранённые вызовы (редактирование, invoice, удаление).</div>
               <div id="listContainer" class="list"></div>
             </div>
           </div>
@@ -496,7 +560,9 @@
         <!-- SEARCH -->
         <div id="section-search" class="section">
           <div class="panel">
-            <div class="panel-header">Search</div>
+            <div class="panel-header">
+              <span>Search</span>
+            </div>
             <div class="panel-body">
               <input id="searchQuery" class="search-input" type="text"
                      placeholder="Имя, телефон, адрес, модель, описание..."
@@ -506,20 +572,33 @@
           </div>
         </div>
 
-        <!-- INVOICE -->
+        <!-- INVOICE VIEW (INTERNAL + CUSTOMER PREVIEW) -->
         <div id="section-invoice" class="section">
           <div class="panel">
-            <div class="panel-header">Invoice</div>
+            <div class="panel-header">
+              <span>Invoice</span>
+            </div>
             <div class="panel-body">
-              <div id="invoiceInfo" class="muted" style="margin-bottom:4px;"></div>
-              <textarea id="invoiceText" class="invoice-textarea"></textarea>
-              <div class="btn-row">
-                <button class="btn blue small" type="button" onclick="copyInvoice()">Copy Invoice</button>
-                <a id="invoiceSmsLink" class="btn small" href="#" target="_blank">SMS to Customer</a>
-                <button class="btn small" type="button" onclick="printInvoice()">Print / PDF</button>
+              <div id="invoiceInfo" class="muted" style="margin-bottom:6px;"></div>
+
+              <div class="muted" style="margin-bottom:4px;">
+                Внутренние суммы (для тебя):
               </div>
+              <textarea id="invoiceInternal" class="invoice-textarea" readonly></textarea>
+
+              <div class="muted" style="margin:8px 0 4px;">
+                Текст, который увидит клиент (только TOTAL):
+              </div>
+              <textarea id="invoiceCustomerText" class="invoice-textarea"></textarea>
+
+              <div class="btn-row">
+                <button class="btn brown small" type="button" onclick="copyCustomerInvoice()">Copy for Customer</button>
+                <a id="invoiceSmsLink" class="btn small secondary" href="#" target="_blank">SMS to Customer</a>
+                <button class="btn small secondary" type="button" onclick="printCustomerInvoice()">Print / PDF</button>
+              </div>
+
               <div class="btn-row" style="margin-top:6px;">
-                <button class="btn small" type="button" onclick="showSection('list')">Back to List</button>
+                <button class="btn small secondary" type="button" onclick="showSection('list')">Back to List</button>
               </div>
             </div>
           </div>
@@ -534,9 +613,11 @@
   </div>
 
   <script>
-    const STORAGE_KEY = 'serviceCalls_v3';
+    const STORAGE_KEY = 'serviceCalls_v4';
     let serviceCalls = [];
+    let currentCallId = null; // null = new, иначе редактируем существующий
 
+    /* ---------- STORAGE ---------- */
     function loadCalls() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY);
@@ -552,6 +633,7 @@
       localStorage.setItem(STORAGE_KEY, JSON.stringify(serviceCalls));
     }
 
+    /* ---------- UI SECTIONS ---------- */
     function showSection(name) {
       ['new','list','search','invoice'].forEach(s => {
         const el = document.getElementById('section-' + s);
@@ -560,14 +642,66 @@
       });
     }
 
-    /* Charges helpers */
+    function togglePanel(id) {
+      const panel = document.getElementById(id);
+      if (!panel) return;
+      panel.classList.toggle('open');
+    }
+
+    function openOnlyCustomerPanel() {
+      ['panel-customer','panel-appl','panel-service','panel-dates','panel-charges','panel-pictures','panel-signature']
+        .forEach(id => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.classList.remove('open');
+        });
+      const cust = document.getElementById('panel-customer');
+      if (cust) cust.classList.add('open');
+    }
+
+    /* ---------- FORM / CALL DATA ---------- */
+    function startNewCall() {
+      currentCallId = null;
+      document.getElementById('editLabel').textContent = 'New Service Call';
+      clearForm();
+      openOnlyCustomerPanel();
+      showSection('new');
+    }
+
+    function cancelForm() {
+      clearForm();
+      showSection('list');
+    }
+
+    function clearForm() {
+      const fields = [
+        'firstName','lastName','address','city','instructions','zip','state',
+        'cellPhone1','cellPhone2','altPhone','email',
+        'applType','make','model','serial','mfg',
+        'techNotes','complaint','description','dealer','source',
+        'datePurchased','dateStarted','dateCompleted',
+        'partsTotal','flatRate','labor','tripCharge','shipping','tax','total'
+      ];
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (el.type === 'number') el.value = 0;
+        else el.value = '';
+      });
+      clearSignature();
+    }
+
     function numberVal(id) {
-      return parseFloat(document.getElementById(id).value) || 0;
+      const el = document.getElementById(id);
+      if (!el) return 0;
+      const v = parseFloat(el.value);
+      return isNaN(v) ? 0 : v;
     }
 
     function sumTotal() {
-      const subtotal = numberVal('partsTotal') + numberVal('flatRate') + numberVal('labor') +
-                       numberVal('tripCharge') + numberVal('shipping') + numberVal('tax');
+      const subtotal = numberVal('partsTotal') + numberVal('flatRate') +
+                       numberVal('labor') + numberVal('tripCharge') +
+                       numberVal('shipping') + numberVal('tax');
       document.getElementById('total').value = subtotal.toFixed(2);
     }
 
@@ -580,21 +714,12 @@
       document.getElementById('total').value = (subtotalNoTax + tax).toFixed(2);
     }
 
-    function resetForm() {
-      document.querySelectorAll('#section-new input, #section-new textarea')
-        .forEach(el => {
-          if (el.type === 'number') el.value = 0;
-          else if (el.type === 'date') el.value = '';
-          else el.value = '';
-        });
-      document.getElementById('total').value = '0';
-      clearSignature();
-    }
-
     function getFormData() {
       return {
-        id: Date.now(),
-        createdAt: new Date().toISOString(),
+        id: currentCallId || Date.now(),
+        createdAt: currentCallId
+          ? (serviceCalls.find(c => c.id === currentCallId)?.createdAt || new Date().toISOString())
+          : new Date().toISOString(),
         customer: {
           firstName: document.getElementById('firstName').value.trim(),
           lastName: document.getElementById('lastName').value.trim(),
@@ -636,24 +761,90 @@
           tax: numberVal('tax'),
           total: numberVal('total')
         }
-        // подпись / картинки можно добавить позже
       };
     }
 
+    function fillFormFromCall(call) {
+      currentCallId = call.id;
+      document.getElementById('editLabel').textContent = 'Editing Call #' + call.id;
+
+      const c = call.customer || {};
+      const a = call.appliance || {};
+      const s = call.serviceInfo || {};
+      const d = call.dates || {};
+      const ch = call.charges || {};
+
+      document.getElementById('firstName').value = c.firstName || '';
+      document.getElementById('lastName').value = c.lastName || '';
+      document.getElementById('address').value = c.address || '';
+      document.getElementById('city').value = c.city || '';
+      document.getElementById('instructions').value = c.instructions || '';
+      document.getElementById('zip').value = c.zip || '';
+      document.getElementById('state').value = c.state || '';
+      document.getElementById('cellPhone1').value = c.cellPhone1 || '';
+      document.getElementById('cellPhone2').value = c.cellPhone2 || '';
+      document.getElementById('altPhone').value = c.altPhone || '';
+      document.getElementById('email').value = c.email || '';
+
+      document.getElementById('applType').value = a.applType || '';
+      document.getElementById('make').value = a.make || '';
+      document.getElementById('model').value = a.model || '';
+      document.getElementById('serial').value = a.serial || '';
+      document.getElementById('mfg').value = a.mfg || '';
+
+      document.getElementById('techNotes').value = s.techNotes || '';
+      document.getElementById('complaint').value = s.complaint || '';
+      document.getElementById('description').value = s.description || '';
+      document.getElementById('dealer').value = s.dealer || '';
+      document.getElementById('source').value = s.source || '';
+
+      document.getElementById('datePurchased').value = d.purchased || '';
+      document.getElementById('dateStarted').value = d.started || '';
+      document.getElementById('dateCompleted').value = d.completed || '';
+
+      document.getElementById('partsTotal').value = (ch.partsTotal ?? 0);
+      document.getElementById('flatRate').value = (ch.flatRate ?? 0);
+      document.getElementById('labor').value = (ch.labor ?? 0);
+      document.getElementById('tripCharge').value = (ch.tripCharge ?? 0);
+      document.getElementById('shipping').value = (ch.shipping ?? 0);
+      document.getElementById('tax').value = (ch.tax ?? 0);
+      document.getElementById('total').value = (ch.total ?? 0);
+    }
+
     function saveCall() {
+      // Авто-сумма перед сохранением
+      sumTotal();
+
       const data = getFormData();
-      if (!data.customer.firstName && !data.customer.cellPhone1) {
-        alert('Нужно указать хотя бы First Name или Cell Phone.');
+      const namePresent = data.customer.firstName || data.customer.lastName;
+      const phonePresent = data.customer.cellPhone1 || data.customer.cellPhone2 || data.customer.altPhone;
+
+      if (!namePresent && !phonePresent) {
+        alert('Нужно указать хотя бы имя или телефон.');
         return;
       }
-      serviceCalls.unshift(data);
+
+      if (currentCallId) {
+        // update
+        const idx = serviceCalls.findIndex(c => c.id === currentCallId);
+        if (idx !== -1) {
+          serviceCalls[idx] = data;
+        } else {
+          serviceCalls.unshift(data);
+        }
+      } else {
+        // new
+        serviceCalls.unshift(data);
+        currentCallId = data.id;
+      }
+
       saveToStorage();
-      resetForm();
       renderList();
       renderSearchResults();
       showSection('list');
     }
 
+    /* ---------- LIST & SEARCH ---------- */
     function escapeHtml(str) {
       if (!str) return '';
       return String(str)
@@ -677,26 +868,39 @@
     function createListItemHtml(call) {
       const date = new Date(call.createdAt || call.id).toLocaleString();
       const total = call.charges?.total || 0;
-      const name = (call.customer.firstName || '') + ' ' + (call.customer.lastName || '');
-      const phone = call.customer.cellPhone1 || call.customer.cellPhone2 || call.customer.altPhone || '';
-      const appliance =
-        [call.appliance.applType, call.appliance.make, call.appliance.model].filter(Boolean).join(' ');
+      const name = ((call.customer?.firstName || '') + ' ' + (call.customer?.lastName || '')).trim() || 'No name';
+      const phone = call.customer?.cellPhone1 || call.customer?.cellPhone2 || call.customer?.altPhone || '';
+      const appliance = [
+        call.appliance?.applType,
+        call.appliance?.make,
+        call.appliance?.model
+      ].filter(Boolean).join(' ');
+
       return `
         <div class="list-item">
           <div class="list-top">
-            <div>${escapeHtml(name || 'No name')}</div>
-            <div class="tag">$${total.toFixed(2)}</div>
+            <div>${escapeHtml(name)}</div>
+            <div class="tag">$${Number(total).toFixed(2)}</div>
           </div>
           <div class="muted">${escapeHtml(phone)}</div>
           <div class="muted">${escapeHtml(appliance)}</div>
-          <div class="muted">${escapeHtml(call.customer.address)}, ${escapeHtml(call.customer.city)}</div>
+          <div class="muted">${escapeHtml(call.customer?.address || '')}, ${escapeHtml(call.customer?.city || '')}</div>
           <div class="muted">Created: ${date}</div>
           <div class="btn-row" style="margin-top:4px;">
-            <button class="btn small" type="button" onclick="openInvoice(${call.id})">Invoice</button>
+            <button class="btn small secondary" type="button" onclick="editCall(${call.id})">Edit</button>
+            <button class="btn small secondary" type="button" onclick="openInvoice(${call.id})">Invoice</button>
             <button class="btn small danger" type="button" onclick="deleteCall(${call.id})">Delete</button>
           </div>
         </div>
       `;
+    }
+
+    function editCall(id) {
+      const call = serviceCalls.find(c => c.id === id);
+      if (!call) return;
+      fillFormFromCall(call);
+      openOnlyCustomerPanel();
+      showSection('new');
     }
 
     function deleteCall(id) {
@@ -715,22 +919,22 @@
       let filtered = serviceCalls;
       if (q) {
         filtered = serviceCalls.filter(c => {
-          const text = [
-            c.customer.firstName,
-            c.customer.lastName,
-            c.customer.cellPhone1,
-            c.customer.cellPhone2,
-            c.customer.altPhone,
-            c.customer.address,
-            c.customer.city,
-            c.appliance.applType,
-            c.appliance.make,
-            c.appliance.model,
-            c.serviceInfo.techNotes,
-            c.serviceInfo.complaint,
-            c.serviceInfo.description
+          const t = [
+            c.customer?.firstName,
+            c.customer?.lastName,
+            c.customer?.cellPhone1,
+            c.customer?.cellPhone2,
+            c.customer?.altPhone,
+            c.customer?.address,
+            c.customer?.city,
+            c.appliance?.applType,
+            c.appliance?.make,
+            c.appliance?.model,
+            c.serviceInfo?.techNotes,
+            c.serviceInfo?.complaint,
+            c.serviceInfo?.description
           ].join(' ').toLowerCase();
-          return text.includes(q);
+          return t.includes(q);
         });
       }
       if (!filtered.length) {
@@ -740,51 +944,27 @@
       container.innerHTML = filtered.map(createListItemHtml).join('');
     }
 
-    /* INVOICE */
+    /* ---------- INVOICE ---------- */
     function openInvoice(id) {
       const call = serviceCalls.find(c => c.id === id);
       if (!call) return;
 
-      const fullName = (call.customer.firstName || '') + ' ' + (call.customer.lastName || '');
-      const phone = call.customer.cellPhone1 || call.customer.cellPhone2 || call.customer.altPhone || '';
-      const addressLine =
-        [call.customer.address, call.customer.city, call.customer.state, call.customer.zip]
-          .filter(Boolean).join(', ');
+      currentCallId = id;
 
+      const fullName = ((call.customer?.firstName || '') + ' ' + (call.customer?.lastName || '')).trim();
+      const phone = call.customer?.cellPhone1 || call.customer?.cellPhone2 || call.customer?.altPhone || '';
+      const addressLine = [call.customer?.address, call.customer?.city, call.customer?.state, call.customer?.zip]
+        .filter(Boolean).join(', ');
       const charges = call.charges || {};
-      const total = charges.total || 0;
+      const total = Number(charges.total || 0);
 
-      const invoiceText =
-`Home Appliance Service
-Phone: (253)-213-1651
+      document.getElementById('invoiceInfo').textContent =
+        `Call #${call.id} • ${fullName || 'customer'} • Total: $${total.toFixed(2)}`;
 
-INVOICE #${call.id}
-Date: ${new Date(call.createdAt || call.id).toLocaleDateString()}
+      // Внутренний breakdown (видишь только ты)
+      const internalText =
+`Internal Charges (for technician):
 
-Customer:
-${fullName}
-${addressLine}
-Phone: ${phone}
-E-mail: ${call.customer.email || ''}
-
-Appliance:
-Type: ${call.appliance.applType || ''}
-Make: ${call.appliance.make || ''}
-Model: ${call.appliance.model || ''}
-Serial: ${call.appliance.serial || ''}
-Mfg#: ${call.appliance.mfg || ''}
-
-Service:
-Complaint: ${call.serviceInfo.complaint || ''}
-Description: ${call.serviceInfo.description || ''}
-Tech Notes: ${call.serviceInfo.techNotes || ''}
-
-Service Dates:
-Purchased: ${call.dates.purchased || ''}
-Started:   ${call.dates.started || ''}
-Completed: ${call.dates.completed || ''}
-
-Charges:
 Parts Total: $${(charges.partsTotal || 0).toFixed(2)}
 Flat Rate:   $${(charges.flatRate || 0).toFixed(2)}
 Labor:       $${(charges.labor || 0).toFixed(2)}
@@ -792,19 +972,23 @@ Trip Charge: $${(charges.tripCharge || 0).toFixed(2)}
 Shipping:    $${(charges.shipping || 0).toFixed(2)}
 Tax:         $${(charges.tax || 0).toFixed(2)}
 --------------------------
-TOTAL:       $${total.toFixed(2)}
+TOTAL:       $${total.toFixed(2)}`;
+      document.getElementById('invoiceInternal').value = internalText;
 
-Thank you for your business!
-Home Appliance Service
-Phone: (253)-213-1651`;
+      // Текст для клиента – ТОЛЬКО TOTAL
+      const customerText =
+`Home Appliance Service
+Phone: (253)-213-1651
 
-      document.getElementById('invoiceText').value = invoiceText;
-      document.getElementById('invoiceInfo').textContent =
-        `Invoice for ${fullName || 'customer'} (${phone || 'no phone'})`;
+Total: $${total.toFixed(2)}
 
+Thank you for your business!`;
+      document.getElementById('invoiceCustomerText').value = customerText;
+
+      // SMS ссылку тоже делаем только с total
       const smsPhone = (phone || '').replace(/[^\d+]/g, '');
       const smsLink = smsPhone
-        ? `sms:${smsPhone}?&body=${encodeURIComponent(invoiceText)}`
+        ? `sms:${smsPhone}?&body=${encodeURIComponent(customerText)}`
         : '#';
       const anchor = document.getElementById('invoiceSmsLink');
       anchor.href = smsLink;
@@ -814,20 +998,20 @@ Phone: (253)-213-1651`;
       showSection('invoice');
     }
 
-    function copyInvoice() {
-      const ta = document.getElementById('invoiceText');
+    function copyCustomerInvoice() {
+      const ta = document.getElementById('invoiceCustomerText');
       ta.select();
       ta.setSelectionRange(0, 99999);
       try {
         document.execCommand('copy');
-        alert('Invoice скопирован в буфер обмена.');
+        alert('Customer invoice скопирован (только total).');
       } catch (e) {
         alert('Не получилось автокопирование, скопируй вручную.');
       }
     }
 
-    function printInvoice() {
-      const text = document.getElementById('invoiceText').value;
+    function printCustomerInvoice() {
+      const text = document.getElementById('invoiceCustomerText').value;
       const win = window.open('', '_blank');
       win.document.write(`
         <html>
@@ -849,7 +1033,7 @@ Phone: (253)-213-1651`;
       win.print();
     }
 
-    /* Signature pad */
+    /* ---------- SIGNATURE PAD ---------- */
     let sigCanvas, sigCtx, drawing = false, lastX = 0, lastY = 0;
 
     function initSignaturePad() {
@@ -896,13 +1080,13 @@ Phone: (253)-213-1651`;
         const t = e.touches[0];
         const rect = sigCanvas.getBoundingClientRect();
         startDraw(t.clientX - rect.left, t.clientY - rect.top);
-      }, {passive:false});
+      }, { passive: false });
       sigCanvas.addEventListener('touchmove', e => {
         e.preventDefault();
         const t = e.touches[0];
         const rect = sigCanvas.getBoundingClientRect();
         draw(t.clientX - rect.left, t.clientY - rect.top);
-      }, {passive:false});
+      }, { passive: false });
       sigCanvas.addEventListener('touchend', e => {
         e.preventDefault();
         endDraw();
@@ -923,10 +1107,23 @@ Phone: (253)-213-1651`;
 
     window.addEventListener('resize', resizeSignatureCanvas);
 
-    // init
+    /* ---------- INIT ---------- */
+    function attachAutoSum() {
+      ['partsTotal','flatRate','labor','tripCharge','shipping','tax']
+        .forEach(id => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.addEventListener('input', sumTotal);
+        });
+    }
+
     loadCalls();
-    showSection('new');
-    window.addEventListener('load', initSignaturePad);
+    showSection('list');
+    window.addEventListener('load', () => {
+      initSignaturePad();
+      attachAutoSum();
+      openOnlyCustomerPanel();
+    });
   </script>
 </body>
 </html>
